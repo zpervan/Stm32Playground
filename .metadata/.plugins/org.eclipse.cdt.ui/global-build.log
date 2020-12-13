@@ -1,0 +1,88 @@
+16:09:51 **** Build of configuration Debug for project 01_HelloWorld ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f407vgtx.d" -MT"Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/main.c: In function 'main':
+../Src/main.c:27:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("Hello, Zvoneee!");
+   ^~~~~~
+../Src/main.c:27:3: warning: incompatible implicit declaration of built-in function 'printf'
+../Src/main.c:27:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "01_HelloWorld.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\zperv\Programming\Stm32Playground\01_HelloWorld\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="01_HelloWorld.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 01_HelloWorld.elf
+ 
+arm-none-eabi-size   01_HelloWorld.elf 
+arm-none-eabi-objdump -h -S  01_HelloWorld.elf  > "01_HelloWorld.list"
+arm-none-eabi-objcopy  -O binary  01_HelloWorld.elf  "01_HelloWorld.bin"
+   text	   data	    bss	    dec	    hex	filename
+   4960	    108	   1580	   6648	   19f8	01_HelloWorld.elf
+Finished building: default.size.stdout
+ 
+Finished building: 01_HelloWorld.list
+Finished building: 01_HelloWorld.bin
+ 
+ 
+16:10:40 **** Incremental Build of configuration Debug for project 01_HelloWorld ****
+make -j4 all 
+arm-none-eabi-size   01_HelloWorld.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4960	    108	   1580	   6648	   19f8	01_HelloWorld.elf
+Finished building: default.size.stdout
+ 
+16:25:09 **** Build of configuration Debug for project 02_DebuggingPlayground ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f407vgtx.d" -MT"Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "02_DebuggingPlayground.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\zperv\Programming\Stm32Playground\02_DebuggingPlayground\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="02_DebuggingPlayground.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 02_DebuggingPlayground.elf
+ 
+arm-none-eabi-size   02_DebuggingPlayground.elf 
+arm-none-eabi-objdump -h -S  02_DebuggingPlayground.elf  > "02_DebuggingPlayground.list"
+arm-none-eabi-objcopy  -O binary  02_DebuggingPlayground.elf  "02_DebuggingPlayground.bin"
+   text	   data	    bss	    dec	    hex	filename
+   5812	    180	   1580	   7572	   1d94	02_DebuggingPlayground.elf
+Finished building: default.size.stdout
+ 
+Finished building: 02_DebuggingPlayground.bin
+Finished building: 02_DebuggingPlayground.list
+ 
+ 
+16:25:30 **** Incremental Build of configuration Debug for project 02_DebuggingPlayground ****
+make -j4 all 
+arm-none-eabi-size   02_DebuggingPlayground.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5812	    180	   1580	   7572	   1d94	02_DebuggingPlayground.elf
+Finished building: default.size.stdout
+ 
+16:42:38 **** Incremental Build of configuration Debug for project 02_DebuggingPlayground ****
+make -j4 all 
+arm-none-eabi-size   02_DebuggingPlayground.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5812	    180	   1580	   7572	   1d94	02_DebuggingPlayground.elf
+Finished building: default.size.stdout
+ 
+16:42:50 **** Incremental Build of configuration Debug for project 01_HelloWorld ****
+make -j4 all 
+arm-none-eabi-size   01_HelloWorld.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4960	    108	   1580	   6648	   19f8	01_HelloWorld.elf
+Finished building: default.size.stdout
+ 
+16:43:08 **** Incremental Build of configuration Debug for project 02_DebuggingPlayground ****
+make -j4 all 
+arm-none-eabi-size   02_DebuggingPlayground.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5812	    180	   1580	   7572	   1d94	02_DebuggingPlayground.elf
+Finished building: default.size.stdout
+ 
+17:07:15 **** Incremental Build of configuration Debug for project 02_DebuggingPlayground ****
+make -j4 all 
+arm-none-eabi-size   02_DebuggingPlayground.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5812	    180	   1580	   7572	   1d94	02_DebuggingPlayground.elf
+Finished building: default.size.stdout
+ 

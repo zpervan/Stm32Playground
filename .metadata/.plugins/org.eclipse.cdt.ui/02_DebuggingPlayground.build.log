@@ -1,0 +1,10 @@
+17:07:15 **** Incremental Build of configuration Debug for project 02_DebuggingPlayground ****
+make -j4 all 
+arm-none-eabi-size   02_DebuggingPlayground.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5812	    180	   1580	   7572	   1d94	02_DebuggingPlayground.elf
+Finished building: default.size.stdout
+ 
+
+17:07:15 Build Finished. 0 errors, 0 warnings. (took 184ms)
+
